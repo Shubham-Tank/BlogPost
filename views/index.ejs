@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+    </style>
+</head>
+
+<body>
+    <%- include('nav.ejs') %>
+    <div class="container">
+        <% data.forEach(element => { 
+           let id = element._id 
+            %>
+
+        <div class="media blog-home">
+            <div class="media-body blog-home-single" onclick="window.location.replace('<%= '/blog/'+id %>')"
+                id="<%= id %>">
+                <h4 class="media-heading"> <%= element.title %> </h4>
+                <p><%= element.introduction %> </p>
+                <small class="author">
+                    <div class="time">
+                        <i><%= element.createdAt.toString().slice(4,25) %></i>
+                    </div>
+
+                    <div class="author-name">
+                        -&nbsp;&nbsp;<%= element.author %> <a href="mailto:<%= element.email %> ">(<%= element.email %>)
+                        </a>
+                    </div>
+                </small>
+            </div>
+        </div>
+
+        <% }); %>
+
+    </div>
+</body>
+
+</html>
