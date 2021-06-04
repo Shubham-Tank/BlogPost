@@ -19,4 +19,4 @@ or
 npx nodemon app
 ```
 
-now you can locate to homepage by typing url [localhost:9000] in browser
+now you can locate to homepage by typing url [localhost:9000](localhost:9000) in browser
